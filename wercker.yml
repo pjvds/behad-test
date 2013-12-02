@@ -1,0 +1,11 @@
+box: wercker/php
+build:
+  steps:
+    - script:
+        name: Composer install
+        code: |
+          composer install --no-interaction
+    - script:
+        name: Behat
+        code: |
+          bin/behat
