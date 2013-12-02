@@ -2,10 +2,14 @@ box: wercker/php
 build:
   steps:
     - script:
+        name: Update composer
+        code: |
+          /usr/local/bin/composer self-update
+    - script:
         name: Composer install
         code: |
           composer install --no-interaction
     - script:
         name: Behat
         code: |
-          bin/behat
+          bin/behat -V
